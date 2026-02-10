@@ -3,6 +3,18 @@
 # include <bits/stdc++.h>
 using namespace std;
 
+// class Solution {
+// public:
+//     int findMin(vector<int>& nums) {
+//        int m = INT_MAX;
+
+//        for(int val : nums){
+//         m = min(val,m);
+//        } 
+//        return m;
+//     }
+// };
+
 class Solution {
 public:
     int findMin(vector<int>& nums) {
