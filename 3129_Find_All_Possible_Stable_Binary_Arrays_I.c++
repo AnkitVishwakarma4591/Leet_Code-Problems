@@ -36,7 +36,7 @@ public:
 
 int main(){
     Solution s1;
-    int zero = 1, one = 1, limit = 2;
+    int zero = 3, one = 3, limit = 2;
 
     cout<<s1.numberOfStableArrays(zero, one, limit)<<endl;
     
