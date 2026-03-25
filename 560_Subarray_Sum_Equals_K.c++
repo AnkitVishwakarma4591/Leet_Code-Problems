@@ -26,6 +26,6 @@ int main(){
     int k = 3;
 
     cout<<s1.subarraySum(nums, k)<<endl;
-    
+
     return 0;
 }
