@@ -1,0 +1,51 @@
+# include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> lexicographicallySmallestArray(vector<int>& nums, int limit) {
+        int n = nums.size();
+
+        vector<int> vec = nums;
+        //sort the vec
+        sort(begin(vec), end(vec));
+
+        int groupNum = 0;
+        unordered_map<int, int> numToGroup;
+        numToGroup[vec[0]] = groupNum;
+
+        unordered_map<int, list<int>> groupToList;
+        groupToList[groupNum].push_back(vec[0]); //O(1)
+
+        for(int i = 1; i < n; i++) {
+            if(abs(vec[i] - vec[i-1]) > limit) {
+                groupNum += 1;
+            }
+
+            numToGroup[vec[i]] = groupNum;
+            groupToList[groupNum].push_back(vec[i]);
+        }
+        
+        vector<int> result(n);
+        for(int i = 0; i < n; i++) {
+            int num = nums[i];
+            int group = numToGroup[num];
+            result[i] = *groupToList[group].begin(); 
+            groupToList[group].pop_front();
+        }
+
+        return result;
+    }
+};
+
+
+int main(){
+    Solution s1;
+    vector<int> nums = {1,5,3,9,8};
+    int limits = 2;
+
+    for(int val : s1.lexicographicallySmallestArray(nums, limits)){
+        cout<<val<<" ";
+    }
+    return 0;
+}
