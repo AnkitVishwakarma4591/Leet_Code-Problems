@@ -1,0 +1,26 @@
+# include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int minimizeSum(vector<int>& nums) {
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        
+        int case1 = nums[n - 1] - nums[2];     
+        int case2 = nums[n - 3] - nums[0];     
+        int case3 = nums[n - 2] - nums[1];     
+        
+        return min({case1, case2, case3});
+    }
+};
+
+int main(){
+    Solution s1;
+
+    vector<int> nums = {1, 4, 7, 8, 5};
+
+    cout<<s1.minimizeSum(nums)<<endl;
+    
+    return 0;
+}
